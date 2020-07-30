@@ -6,7 +6,7 @@
                      :rowData="rowData"
                      :modules="modules"
                      :defaultColDef="defaultColDef"
-                     style="height: 50vh;"
+                     style="height: 55vh;"
                      :animateRows="true"
                      class="ag-theme-alpine ag-grid-table"
       ></ag-grid-vue>
