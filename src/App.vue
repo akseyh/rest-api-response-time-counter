@@ -16,11 +16,11 @@
     <div style="display: flex; align-items: center; justify-content: center; width: 100%">
       <div style="margin-left: 10px; text-align: left;">
         <span>BODY (JSON)</span>
-        <vs-input v-model="body" style="width: 600px;" :disabled="started"></vs-input>
+        <vs-input v-model="body" style="width: 600px;" placeholder="{}" :disabled="started"></vs-input>
       </div>
       <div style="margin-left: 10px; text-align: left;">
         <span>HEADER (JSON)</span>
-        <vs-input v-model="header" style="width: 600px;" :disabled="started"></vs-input>
+        <vs-input v-model="header" style="width: 600px;" placeholder="{}" :disabled="started"></vs-input>
       </div>
     </div>
     <div style="margin-top: 15px;">
@@ -92,13 +92,12 @@ export default {
       minResTimeExecute   : null,
       maxResTimeExecute   : null,
       rowDataExecute      : [],
-      body                : '{"request": {"action":"TaskAnalysisByDay","version":"1"}}',
-      header              : '{ "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9qZWN0SUQiOiJjMGE0NmYyMi0yOWYwLTRjZjUtYTgyMS1jYzJhNTk2OWQzODMiLCJVc2VySW5mbyI6IntcIlVzZXJJRFwiOlwiNDJhOGZiOGItOWZmOS00NThjLTg0ZWYtOTViNDVmMjgwZWMyXCIsXCJFbWFpbFwiOlwic2VtaWhjZXRpbjM0QGdtYWlsLmNvbVwiLFwiRmlyc3ROYW1lXCI6XCJTZW1paFwiLFwiTGFzdE5hbWVcIjpcIsOHRVTEsE5cIixcIlBob25lTnVtYmVyXCI6XCJOT05FXCIsXCJCaXJ0aERhdGVcIjpcIlwiLFwiR2VuZGVyXCI6XCJcIixcIkFkZHJlc3NcIjpcIlwiLFwiSXNDb25maXJtXCI6dHJ1ZX0iLCJuYmYiOjE1OTYwOTc5NjIsImV4cCI6MTYyNzYzMzk2MiwiaXNzIjoiQGZpbnRlY2h5YXppbGltIiwiYXVkIjoiQGZpbnRlY2h5YXppbGltIn0.9vRPQsAK3714ZRpTgWUU0IeL6NhgKPtZM4oaj7OOArA" }',
-      url                 : 'http://77.92.133.194:52013/api/FinTech/ExecuteFormData',
-      token               : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm9qZWN0SUQiOiJjMGE0NmYyMi0yOWYwLTRjZjUtYTgyMS1jYzJhNTk2OWQzODMiLCJVc2VySW5mbyI6IntcIlVzZXJJRFwiOlwiNDJhOGZiOGItOWZmOS00NThjLTg0ZWYtOTViNDVmMjgwZWMyXCIsXCJFbWFpbFwiOlwic2VtaWhjZXRpbjM0QGdtYWlsLmNvbVwiLFwiRmlyc3ROYW1lXCI6XCJTZW1paFwiLFwiTGFzdE5hbWVcIjpcIsOHRVTEsE5cIixcIlBob25lTnVtYmVyXCI6XCJOT05FXCIsXCJCaXJ0aERhdGVcIjpcIlwiLFwiR2VuZGVyXCI6XCJcIixcIkFkZHJlc3NcIjpcIlwiLFwiSXNDb25maXJtXCI6dHJ1ZX0iLCJuYmYiOjE1OTYwMzYxNjksImV4cCI6MTYyNzU3MjE2OSwiaXNzIjoiQGZpbnRlY2h5YXppbGltIiwiYXVkIjoiQGZpbnRlY2h5YXppbGltIn0.XLDJwdWNe75fuv46Dzwn_YXC6BvwhHksjK4dw4ehQwI',
+      body                : '',
+      header              : '',
+      url                 : '',
+      token               : '',
       selectedMethod      : 'POST',
       methods             : ['GET', 'POST'],
-      CustomerID          : '315BF175-9FBB-EA11-A2E2-000C293978ED',
       columnDataExecute   : [
         {
           headerName: 'Başlangıç Zamanı',
@@ -124,7 +123,7 @@ export default {
   },
   computed: {
     isValid() { 
-      return this.selectedMethod && this.url && this.validURL(this.url)
+      return this.selectedMethod && this.url && this.validURL(this.url) || true
     },
     isTestCompleted() {
       return this.completedExecute === this.numberTest && this.sendedReq === this.numberTest
