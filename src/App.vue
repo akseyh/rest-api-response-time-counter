@@ -16,11 +16,11 @@
     <div style="display: flex; align-items: center; justify-content: center; width: 100%">
       <div style="margin-left: 10px; text-align: left;">
         <span>BODY (JSON)</span>
-        <vs-input v-model="body" style="width: 600px;" placeholder="{}" :disabled="started"></vs-input>
+        <vs-input v-model="body" style="width: 600px;" value="{}" :disabled="started"></vs-input>
       </div>
       <div style="margin-left: 10px; text-align: left;">
         <span>HEADER (JSON)</span>
-        <vs-input v-model="header" style="width: 600px;" placeholder="{}" :disabled="started"></vs-input>
+        <vs-input v-model="header" style="width: 600px;" value="{}" :disabled="started"></vs-input>
       </div>
     </div>
     <div style="margin-top: 15px;">
